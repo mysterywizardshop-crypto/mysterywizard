@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Mystery Wizard — Curiosities, Wonders &amp; Magic</title>
+<meta name="description" content="Stories, riddles and real magic from the Mystery Wizard. Home of The Mystery Wizard Chronicles, starting with The Invisible Spell.">
+<meta property="og:title" content="The Mystery Wizard — Curiosities, Wonders &amp; Magic">
+<meta property="og:description" content="Stories, riddles and real magic for curious kids and the grown-ups who read with them.">
+<meta property="og:image" content="images/share.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#070E24">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* ===== Colors & fonts: change these to restyle the whole site ===== */
+:root{
+  --night:#070E24;      /* page background */
+  --deep:#0B1530;       /* Meet the Wizard background */
+  --card:#0D1A3A;       /* cards and the social strip */
+  --glow:#24183F;       /* purple glow on the shows box */
+  --gold:#D9B26A;       /* accent, labels and buttons */
+  --gold-soft:#F1D59A;
+  --ink:#F4EEDF;        /* headings */
+  --muted:#D6DBE8;      /* body text */
+  --dim:#B8C0D4;        /* small text */
+  --parch:#F3E9D2;      /* email signup background */
+  --parch-ink:#2A1F14;
+  --heading-font:Fraunces,Georgia,serif;
+  --label-font:Cinzel,Georgia,serif;
+  --body-font:'Source Sans 3',system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--ink);font-family:var(--body-font);line-height:1.5;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--gold)}a:hover{color:var(--gold-soft)}
+:focus-visible{outline:3px solid var(--gold-soft);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.pad{padding-top:104px;padding-bottom:104px}
+.eyebrow{margin:0;font-family:var(--label-font);font-weight:500;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+h1,h2,h3{font-family:var(--heading-font);font-weight:600;color:var(--ink);margin:0}
+h1{font-size:clamp(42px,6vw,72px);line-height:1.02;letter-spacing:-.01em}
+h2{font-size:clamp(32px,4vw,48px);line-height:1.1}
+h3{font-size:24px;line-height:1.2}
+.lead{margin:0;font-size:19px;line-height:1.6;color:var(--muted)}
+.body{margin:0;font-size:17px;line-height:1.6;color:var(--muted)}
+.small{margin:0;font-size:15px;line-height:1.5;color:var(--dim)}
+.stack{display:flex;flex-direction:column;gap:16px}
+.row{display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 24px;border-radius:999px;background:var(--gold);color:#1A1206;border:1px solid var(--gold);font:600 16px/1 var(--body-font);text-decoration:none;cursor:pointer;transition:transform .15s ease,background-color .15s ease}
+.btn:hover{transform:translateY(-1px);background:#E5C17E;color:#1A1206}
+.btn--ghost{background:transparent;color:var(--ink);border-color:rgba(217,178,106,.6)}
+.btn--ghost:hover{background:rgba(217,178,106,.12);color:var(--ink)}
+.link{display:inline-flex;align-items:center;min-height:44px;font-weight:600;text-decoration:none}
+.card{background:var(--card);border:1px solid rgba(217,178,106,.25);border-radius:18px}
+[hidden]{display:none !important}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;background:rgba(7,14,36,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(217,178,106,.18)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:76px}
+.brand{display:flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none}
+.brand img{width:52px;height:52px;border-radius:10px}
+.brand span{font-family:var(--label-font);font-weight:700;font-size:16px;letter-spacing:.08em;line-height:1.15}
+.navlinks{display:flex;gap:30px;font-family:var(--label-font);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.navlinks a{color:#E6DDC8;text-decoration:none}.navlinks a:hover{color:var(--gold)}
+.nav .btn{min-height:44px;padding:0 20px;font-size:15px}
+
+/* hero */
+.hero{background:linear-gradient(90deg,rgba(7,14,36,.97) 0%,rgba(7,14,36,.9) 42%,rgba(7,14,36,.45) 100%),url(images/wagon-hero.jpg) center right/cover no-repeat var(--night)}
+.hero__in{display:flex;flex-wrap:wrap;align-items:center;gap:56px;padding-top:88px;padding-bottom:96px}
+.hero__copy{flex:999 1 460px;min-width:0;display:flex;flex-direction:column;gap:22px}
+.hero__copy .lead{max-width:34rem;font-size:20px}
+.hero__art{flex:1 1 280px;display:flex;justify-content:center}
+.hero__art img{width:100%;max-width:340px;border-radius:10px;box-shadow:0 30px 70px rgba(0,0,0,.6),0 0 0 1px rgba(217,178,106,.35);transform:rotate(2deg)}
+
+/* social strip */
+.strip{background:var(--card);border-top:1px solid rgba(217,178,106,.2);border-bottom:1px solid rgba(217,178,106,.2)}
+.strip__in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding-top:30px;padding-bottom:30px}
+.strip h2{font-weight:500;font-size:24px;line-height:1.25;display:flex;align-items:center;gap:14px}
+.social{display:inline-flex;align-items:center;gap:10px}
+.social svg{width:20px;height:20px;flex:none}
+
+/* books */
+.books{display:flex;flex-direction:column;gap:48px}
+.feature{display:flex;flex-wrap:wrap;gap:48px;align-items:center;padding:40px}
+.feature img{width:220px;border-radius:8px;box-shadow:0 18px 40px rgba(0,0,0,.5);flex:none}
+.feature__copy{flex:999 1 380px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.feature h3{font-size:36px;line-height:1.1}
+.tags{display:flex;flex-wrap:wrap;gap:10px}
+.tag{padding:6px 14px;border-radius:999px;background:rgba(217,178,106,.12);color:var(--gold-soft);font-size:14px;font-weight:600}
+.cards{display:flex;flex-wrap:wrap;gap:28px}
+.bookcard{flex:1 1 340px;min-width:0;display:flex;gap:24px;align-items:flex-start;padding:32px}
+.bookcard--glow{background:linear-gradient(160deg,var(--glow) 0%,var(--card) 100%)}
+.bookcard img{width:120px;border-radius:6px;box-shadow:0 12px 28px rgba(0,0,0,.45);flex:none}
+.ph{flex:none;width:120px;aspect-ratio:2/3;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;border:1px dashed rgba(217,178,106,.55);border-radius:6px;font-family:var(--label-font);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-soft)}
+.bookcard__copy{display:flex;flex-direction:column;gap:10px;min-width:0}
+
+/* wizard */
+.wizard{background:var(--deep);border-top:1px solid rgba(217,178,106,.15)}
+.wizard__in{display:flex;flex-wrap:wrap;gap:56px;align-items:center}
+.wizard__media{flex:1 1 320px;max-width:440px}
+.wizard__media img{width:100%;border-radius:18px;box-shadow:0 0 0 1px rgba(217,178,106,.3),0 24px 60px rgba(0,0,0,.45)}
+.wizard__copy{flex:999 1 420px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.series{display:flex;flex-wrap:wrap;gap:16px;margin-top:8px}
+.series .card{flex:1 1 180px;padding:20px;border-radius:14px;display:flex;flex-direction:column;gap:6px}
+.series h3{font-size:19px}
+
+/* shows */
+.shows{display:flex;flex-wrap:wrap;gap:40px;align-items:center;padding:48px;border-radius:22px;background:linear-gradient(135deg,var(--glow) 0%,var(--card) 70%);border:1px solid rgba(217,178,106,.3)}
+.shows__copy{flex:999 1 440px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.shows h2{font-size:clamp(30px,3.6vw,44px)}
+.shows__cta{flex:1 1 240px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.details{margin:4px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:10px 24px;font-size:16px;color:var(--muted)}
+.details li{display:flex;align-items:center;gap:8px}
+.details li::before{content:"✦";color:var(--gold);font-size:12px}
+
+/* email */
+.join{background:var(--parch);color:var(--parch-ink)}
+.join__in{display:flex;flex-wrap:wrap;gap:48px;align-items:center}
+.join__copy{flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.join .eyebrow{color:#7A5714}
+.join h2{color:var(--parch-ink)}
+.join .lead{color:#4A3B2A}
+.form{flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:14px;padding:32px;border-radius:18px;background:#FBF6EA;border:1px solid #DCCBA4}
+.form label{font-weight:600;font-size:16px}
+.form__row{display:flex;flex-wrap:wrap;gap:10px}
+.form input[type=email]{flex:1 1 220px;min-height:52px;padding:0 16px;border-radius:10px;border:1px solid #BFA978;background:#fff;font:400 17px var(--body-font);color:var(--parch-ink)}
+.form .btn{border-radius:10px;min-height:52px;background:var(--card);border-color:var(--card);color:var(--ink)}
+.form .btn:hover{background:#1A2A55;color:var(--ink)}
+.check{display:flex;gap:10px;align-items:flex-start}
+.check input{width:20px;height:20px;margin:2px 0 0;flex:none;accent-color:var(--card)}
+.check label{font-weight:400;font-size:15px;line-height:1.45;color:#4A3B2A}
+.fine{margin:0;font-size:13px;line-height:1.5;color:#5E4C36}
+.form__msg{margin:0;font-size:16px;font-weight:600}
+.form__msg--ok{font-family:var(--heading-font);font-size:22px;color:var(--parch-ink)}
+.form__msg--err{color:#8A1C1C}
+
+/* footer */
+.foot{background:#050A1B;border-top:1px solid rgba(217,178,106,.2)}
+.foot__in{display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between;padding-top:48px;padding-bottom:48px}
+.foot__brand{display:flex;align-items:center;gap:16px}
+.foot__brand img{width:72px;height:72px;border-radius:12px}
+.foot__brand p{margin:0;max-width:22rem;font-family:var(--heading-font);font-size:18px;line-height:1.45;color:#E6DDC8}
+.foot__social{display:flex;gap:10px}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid rgba(217,178,106,.45);color:var(--ink)}
+.icon-btn:hover{background:rgba(217,178,106,.12);color:var(--ink)}
+.icon-btn svg{width:20px;height:20px}
+.copy{width:100%;margin:0;font-size:14px;color:#8E98B0}
+
+@media (max-width:760px){
+  .navlinks{display:none}
+  .brand span{font-size:14px}
+  .hero{background:linear-gradient(180deg,rgba(7,14,36,.8) 0%,rgba(7,14,36,.96) 62%),url(images/wagon-hero.jpg) center/cover no-repeat var(--night)}
+  .hero__in{padding-top:56px;padding-bottom:64px;gap:40px}
+  .pad{padding-top:72px;padding-bottom:72px}
+  .feature,.shows{padding:28px}
+  .feature img{width:180px}
+  .bookcard{padding:24px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <nav class="wrap nav" aria-label="Main">
+    <a class="brand" href="#top"><img src="images/logo-emblem.jpg" alt="" width="52" height="52"><span>The Mystery<br>Wizard</span></a>
+    <div class="navlinks">
+      <a href="#books">Books</a>
+      <a href="#wizard">Videos</a>
+      <a href="#shows" data-needs="bookingEmail">Live Shows</a>
+    </div>
+    <a class="btn" href="#join">Join the Wagon</a>
+  </nav>
+</header>
+
+<main id="top">
+
+<section class="hero" aria-labelledby="hero-h">
+  <div class="wrap hero__in">
+    <div class="hero__copy">
+      <p class="eyebrow">Curiosities, wonders &amp; magic</p>
+      <h1 id="hero-h">Welcome,<br>apprentice.</h1>
+      <p class="lead">You found the wagon. Stories, riddles and real magic from the Mystery Wizard — for curious kids and the grown-ups who read with them.</p>
+      <div class="row">
+        <a class="btn" href="#books">Start with Book One
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--ghost" href="#wizard">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z"/></svg>
+          Watch the Wizard</a>
+      </div>
+      <p class="small">Book One is available now on Amazon · Book Two, <em>Firefly Mind</em>, is coming soon</p>
+    </div>
+    <div class="hero__art">
+      <img src="images/invisible-spell-cover.jpg" alt="Cover of The Invisible Spell, Book One of The Mystery Wizard Chronicles" width="800" height="1200">
+    </div>
+  </div>
+</section>
+
+<section class="strip" aria-labelledby="strip-h" data-social-section>
+  <div class="wrap strip__in">
+    <h2 id="strip-h">
+      <svg aria-hidden="true" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M12 3l2.2 5.6L20 9.3l-4.4 3.9 1.3 5.8L12 16l-4.9 3 1.3-5.8L4 9.3l5.8-.7z"/></svg>
+      Saw the Wizard on YouTube or TikTok? You're in the right place.
+    </h2>
+    <div class="row" data-social-buttons></div>
+  </div>
+</section>
+
+<section id="books" class="wrap pad books" aria-labelledby="books-h">
+  <div class="stack" style="max-width:46rem">
+    <p class="eyebrow">The Mystery Wizard Chronicles</p>
+    <h2 id="books-h">Ten books. One traveling wagon.</h2>
+    <p class="lead">Each story pairs a young apprentice with a real feeling kids face — confidence, focus, grief, worry and more — and shows them the magic was within them all along.</p>
+  </div>
+
+  <article class="card feature">
+    <img src="images/invisible-spell-cover.jpg" alt="Cover of The Invisible Spell" width="800" height="1200" loading="lazy">
+    <div class="feature__copy">
+      <p class="eyebrow" style="font-size:12px">Book One · Available now</p>
+      <h3>The Invisible Spell</h3>
+      <p class="body">Jasper has always felt invisible — until a mysterious compass leads him to a traveling wizard and a lesson that could change everything. A warm, magical story about confidence, courage, and learning to believe in yourself.</p>
+      <div class="tags"><span class="tag">Persistence</span><span class="tag">Self-Belief</span><span class="tag">Courage</span></div>
+      <div class="row" style="margin-top:6px"><a class="btn" href="https://www.amazon.com/dp/B0HDPP3ZD3" target="_blank" rel="noopener">Buy on Amazon</a></div>
+    </div>
+  </article>
+
+  <div class="cards">
+    <article class="card bookcard">
+      <img src="images/activity-book-cover.jpg" alt="Cover of The Invisible Spell Activity Book" width="384" height="497" loading="lazy">
+      <div class="bookcard__copy">
+        <p class="eyebrow" style="font-size:12px">Companion</p>
+        <h3>The Invisible Spell Activity Book</h3>
+        <p class="body" style="font-size:16px">Confidence quests, puzzles, mazes, hidden objects and wizardly fun from Jasper's world.</p>
+        <a class="link" href="https://a.co/d/0hN6KO5o" target="_blank" rel="noopener">Buy the Activity Book →</a>
+      </div>
+    </article>
+    <article class="card bookcard bookcard--glow">
+      <div class="ph" role="img" aria-label="Cover reveal coming soon">Cover reveal soon</div>
+      <div class="bookcard__copy">
+        <p class="eyebrow" style="font-size:12px">Book Two · Coming soon</p>
+        <h3>Firefly Mind</h3>
+        <p class="body" style="font-size:16px">Amara's busy, bright mind isn't a problem to fix — it's a gift. The wagon finds her next.</p>
+        <a class="link" href="#join">Get notified at launch →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="wizard" class="wizard" aria-labelledby="wizard-h">
+  <div class="wrap pad wizard__in">
+    <div class="wizard__media">
+      <!-- Swap in the Wizard's portrait here when ready: images/wizard.jpg -->
+      <img src="images/logo-full.jpg" alt="The Mystery Wizard logo" width="720" height="789" loading="lazy">
+    </div>
+    <div class="wizard__copy">
+      <p class="eyebrow">Meet the Wizard</p>
+      <h2 id="wizard-h">Wise, warm, and still baffled by self-checkout.</h2>
+      <p class="lead">The Mystery Wizard travels wherever the Compass of Wonders leads, sharing riddles, mind magic and small wisdom for big feelings.</p>
+      <div class="series">
+        <div class="card"><h3>The Wizard's Riddle</h3><p class="small">Pause and guess before the hourglass runs out.</p></div>
+        <div class="card"><h3>Solve the Mystery</h3><p class="small">Three clues. One apprentice. Can you crack it first?</p></div>
+        <div class="card"><h3>Wizard Wisdom</h3><p class="small">One breath. One small step. A little calm magic.</p></div>
+      </div>
+      <div class="row" style="margin-top:8px" data-social-buttons data-style="primary"></div>
+    </div>
+  </div>
+</section>
+
+<section id="shows" class="wrap pad" aria-labelledby="shows-h" data-needs="bookingEmail">
+  <div class="shows">
+    <div class="shows__copy">
+      <p class="eyebrow">For schools &amp; libraries</p>
+      <h2 id="shows-h">Bring the Wizard to your school or library.</h2>
+      <p class="body" style="font-size:18px"><strong style="color:var(--ink)">The Mystery Wizard and the Compass of Wonders</strong> is a live show of rope, bubbles and magic to music, built around persistence, self-belief and courage.</p>
+      <ul class="details">
+        <li>45-minute library show</li>
+        <li>Rope, bubbles &amp; magic to music</li>
+        <li>Built around <em>The Invisible Spell</em></li>
+      </ul>
+    </div>
+    <div class="shows__cta">
+      <a class="btn" data-booking-link href="#" style="min-height:52px;font-size:17px">Ask about booking</a>
+      <p class="small" data-booking-text></p>
+    </div>
+  </div>
+</section>
+
+<section id="join" class="join" aria-labelledby="join-h">
+  <div class="wrap pad join__in">
+    <div class="join__copy">
+      <p class="eyebrow">For parents, guardians &amp; educators</p>
+      <h2 id="join-h">Step inside the Mystery Wagon.</h2>
+      <p class="lead">Get book news, apprentice activities, and first looks at what's coming next — including Book Two.</p>
+    </div>
+    <form class="form" id="signup" novalidate>
+      <label for="email">Your email address</label>
+      <div class="form__row">
+        <input id="email" name="fields[email]" type="email" required autocomplete="email" placeholder="you@example.com">
+        <button class="btn" type="submit">Join the list</button>
+      </div>
+      <div class="check">
+        <input id="adult" type="checkbox" required>
+        <label for="adult">I am 18 or older and agree to receive Mystery Wizard updates.</label>
+      </div>
+      <p class="fine">For adults 18+. We never sell your email, and you can unsubscribe anytime.</p>
+      <p class="form__msg" role="status" aria-live="polite" hidden></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <div class="foot__brand">
+      <img src="images/logo-emblem.jpg" alt="The Mystery Wizard" width="72" height="72" loading="lazy">
+      <p>For curious minds, courageous hearts, and wonderfully wild imaginations.</p>
+    </div>
+    <div class="foot__social" data-social-icons></div>
+    <p class="copy">© <span id="yr">2026</span> Mystery Wizard · Books by J.J. Kuter</p>
+  </div>
+</footer>
+
+<script>
+/* ================================================================
+   SITE SETTINGS — edit these values, nothing else needs to change.
+   Leave a value as '' to hide that link everywhere on the page.
+   ================================================================ */
+const SITE = {
+  youtube:   '',   // e.g. 'https://www.youtube.com/@yourchannel'
+  tiktok:    '',   // e.g. 'https://www.tiktok.com/@yourhandle'
+  instagram: '',
+  facebook:  '',
+  bookingEmail: '',  // e.g. 'shows@themysterywizard.com' (shows the Live Shows section)
+  // MailerLite: Forms > Embedded forms > your form > HTML code.
+  // Copy the form's action URL, it looks like:
+  // https://assets.mailerlite.com/jsonp/123456/forms/987654321/subscribe
+  mailerliteAction: ''
+};
+
+const ICONS = {
+  youtube:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.7 15.1V8.9L15.5 12z"/></svg>',
+  tiktok:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 2h-3.4v13.4a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9.1a6.4 6.4 0 1 0 5.4 6.3V8.6a8 8 0 0 0 4.6 1.5V6.7a4.6 4.6 0 0 1-4.6-4.7z"/></svg>',
+  instagram:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>',
+  facebook:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8V6.3c0-.8.2-1.3 1.4-1.3H17V2h-2.6C11.7 2 11 3.6 11 6v2H9v3h2v11h3V11h2.6l.4-3z"/></svg>'
+};
+const NAMES = {youtube:'YouTube', tiktok:'TikTok', instagram:'Instagram', facebook:'Facebook'};
+const LABELS = {youtube:'Watch on YouTube', tiktok:'Follow on TikTok', instagram:'Instagram', facebook:'Facebook'};
+const nets = Object.keys(ICONS).filter(k => SITE[k]);
+
+document.querySelectorAll('[data-social-buttons]').forEach((box, n) => {
+  nets.forEach((k, i) => {
+    const a = document.createElement('a');
+    a.href = SITE[k]; a.target = '_blank'; a.rel = 'noopener';
+    a.className = (box.dataset.style === 'primary' && i === 0) ? 'btn social' : 'btn btn--ghost social';
+    a.innerHTML = ICONS[k] + '<span></span>';
+    a.lastChild.textContent = box.dataset.style === 'primary' ? LABELS[k] : NAMES[k];
+    box.appendChild(a);
+  });
+});
+document.querySelectorAll('[data-social-icons]').forEach(box => {
+  nets.forEach(k => {
+    const a = document.createElement('a');
+    a.href = SITE[k]; a.target = '_blank'; a.rel = 'noopener';
+    a.className = 'icon-btn'; a.setAttribute('aria-label', NAMES[k]);
+    a.innerHTML = ICONS[k];
+    box.appendChild(a);
+  });
+});
+if (!nets.length) document.querySelectorAll('[data-social-section]').forEach(el => el.hidden = true);
+
+if (SITE.bookingEmail) {
+  const l = document.querySelector('[data-booking-link]');
+  l.href = 'mailto:' + SITE.bookingEmail + '?subject=' + encodeURIComponent('Mystery Wizard show booking');
+  document.querySelector('[data-booking-text]').textContent = SITE.bookingEmail;
+} else {
+  document.querySelectorAll('[data-needs="bookingEmail"]').forEach(el => el.hidden = true);
+}
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* Email signup → MailerLite */
+const form = document.getElementById('signup');
+const msg = form.querySelector('.form__msg');
+function say(text, ok) {
+  msg.hidden = false; msg.textContent = text;
+  msg.className = 'form__msg ' + (ok ? 'form__msg--ok' : 'form__msg--err');
+}
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = form.email.value.trim();
+  if (!form.email.checkValidity() || !email) return say('Please enter a valid email address.');
+  if (!form.adult.checked) return say('Please confirm you are 18 or older.');
+  if (!SITE.mailerliteAction) return say('Signups open soon — please check back!');
+  const data = new FormData();
+  data.append('fields[email]', email);
+  data.append('ml-submit', '1');
+  data.append('anticsrf', 'true');
+  const btn = form.querySelector('button'); btn.disabled = true;
+  try {
+    await fetch(SITE.mailerliteAction, { method: 'POST', body: data, mode: 'no-cors' });
+    form.querySelectorAll('label,.form__row,.check,.fine').forEach(el => el.hidden = true);
+    say("Thank you! You're on the Mystery Wizard list.", true);
+  } catch (err) {
+    btn.disabled = false;
+    say('Something went wrong. Please try again in a moment.');
+  }
+});
+</script>
+</body>
+</html>
