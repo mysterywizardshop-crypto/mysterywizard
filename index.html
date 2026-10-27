@@ -337,10 +337,10 @@ const SITE = {
   instagram: 'https://www.instagram.com/askthemysterywizard',
   facebook:  '',
   bookingEmail: '',  // e.g. 'shows@themysterywizard.com' (shows the Live Shows section)
-  // Email signups go to your Google Sheet. Paste the Apps Script
-  // "Web app" URL here, it looks like:
-  // https://script.google.com/macros/s/AKfy.../exec
-  signupEndpoint: ''
+  // Email signups go to the "Mystery Wizard Email Address" Google Form,
+  // which saves each one to its linked Google Sheet.
+  signupEndpoint: 'https://docs.google.com/forms/d/e/1FAIpQLSfoC9CBihBHUGHP6Pavy9GYJQJi60RwWhiho2VojfpQcA32ig/formResponse',
+  signupEmailField: 'entry.765624229'   // the form's "Email Address" question
 };
 
 const ICONS = {
@@ -411,12 +411,12 @@ form.addEventListener('submit', async (e) => {
   if (!form.email.checkValidity() || !email) return say('Please enter a valid email address.');
   if (!form.adult.checked) return say('Please confirm you are 18 or older.');
   if (!SITE.signupEndpoint) return say('Signups open soon — please check back!');
-  const data = new URLSearchParams({
-    email: email,
-    adult: 'yes',
-    website: form.website.value,      // spam trap, stays empty for real visitors
-    page: location.href
-  });
+  if (form.website.value) {           // spam trap: bots fill this hidden field
+    form.querySelectorAll('label,.form__row,.check,.fine').forEach(el => el.hidden = true);
+    return say("Thank you! You're on the Mystery Wizard list.", true);
+  }
+  const data = new URLSearchParams();
+  data.append(SITE.signupEmailField, email);
   const btn = form.querySelector('button'); btn.disabled = true;
   try {
     await fetch(SITE.signupEndpoint, { method: 'POST', body: data, mode: 'no-cors' });
