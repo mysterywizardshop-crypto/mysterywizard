@@ -300,13 +300,14 @@ h3{font-size:24px;line-height:1.2}
     <form class="form" id="signup" novalidate>
       <label for="email">Your email address</label>
       <div class="form__row">
-        <input id="email" name="fields[email]" type="email" required autocomplete="email" placeholder="you@example.com">
+        <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
         <button class="btn" type="submit">Join the list</button>
       </div>
       <div class="check">
         <input id="adult" type="checkbox" required>
         <label for="adult">I am 18 or older and agree to receive Mystery Wizard updates.</label>
       </div>
+      <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label for="website">Leave this empty</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
       <p class="fine">For adults 18+. We never sell your email, and you can unsubscribe anytime.</p>
       <p class="form__msg" role="status" aria-live="polite" hidden></p>
     </form>
@@ -337,10 +338,10 @@ const SITE = {
   instagram: '',
   facebook:  '',
   bookingEmail: '',  // e.g. 'shows@themysterywizard.com' (shows the Live Shows section)
-  // MailerLite: Forms > Embedded forms > your form > HTML code.
-  // Copy the form's action URL, it looks like:
-  // https://assets.mailerlite.com/jsonp/123456/forms/987654321/subscribe
-  mailerliteAction: ''
+  // Email signups go to your Google Sheet. Paste the Apps Script
+  // "Web app" URL here, it looks like:
+  // https://script.google.com/macros/s/AKfy.../exec
+  signupEndpoint: ''
 };
 
 const ICONS = {
@@ -384,7 +385,7 @@ if (SITE.bookingEmail) {
 
 document.getElementById('yr').textContent = new Date().getFullYear();
 
-/* Email signup → MailerLite */
+/* Email signup → Google Sheet (Apps Script web app) */
 const form = document.getElementById('signup');
 const msg = form.querySelector('.form__msg');
 function say(text, ok) {
@@ -396,14 +397,16 @@ form.addEventListener('submit', async (e) => {
   const email = form.email.value.trim();
   if (!form.email.checkValidity() || !email) return say('Please enter a valid email address.');
   if (!form.adult.checked) return say('Please confirm you are 18 or older.');
-  if (!SITE.mailerliteAction) return say('Signups open soon — please check back!');
-  const data = new FormData();
-  data.append('fields[email]', email);
-  data.append('ml-submit', '1');
-  data.append('anticsrf', 'true');
+  if (!SITE.signupEndpoint) return say('Signups open soon — please check back!');
+  const data = new URLSearchParams({
+    email: email,
+    adult: 'yes',
+    website: form.website.value,      // spam trap, stays empty for real visitors
+    page: location.href
+  });
   const btn = form.querySelector('button'); btn.disabled = true;
   try {
-    await fetch(SITE.mailerliteAction, { method: 'POST', body: data, mode: 'no-cors' });
+    await fetch(SITE.signupEndpoint, { method: 'POST', body: data, mode: 'no-cors' });
     form.querySelectorAll('label,.form__row,.check,.fine').forEach(el => el.hidden = true);
     say("Thank you! You're on the Mystery Wizard list.", true);
   } catch (err) {
