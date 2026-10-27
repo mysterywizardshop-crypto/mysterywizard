@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="0" y1="6" x2="0" y2="56">
+      <stop offset="0" stop-color="#F6D58E"/>
+      <stop offset="1" stop-color="#C9962F"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0B1530"/>
+  <!-- hat cone with curled tip -->
+  <path d="M15 45 C21 35 24 25 27.5 17 C30 10.5 34.5 6.5 41 6.5 C46.5 6.5 49 10.5 47 13.5 C45 11 41.5 11 39.8 13.5 C38 19 40 31 48 45 Z" fill="url(#g)"/>
+  <!-- crescent moon (navy disc with a gold disc offset over it) -->
+  <circle cx="31" cy="31" r="5" fill="#0B1530"/>
+  <circle cx="33.2" cy="29.6" r="4.3" fill="url(#g)"/>
+  <!-- star -->
+  <path d="M35.5 18 L36.6 20.9 L39.5 22 L36.6 23.1 L35.5 26 L34.4 23.1 L31.5 22 L34.4 20.9 Z" fill="#0B1530"/>
+  <!-- brim -->
+  <path d="M5 49 C5 45 17.5 43 32 43 C46.5 43 59 45 59 49 C59 53 46.5 55 32 55 C17.5 55 5 53 5 49 Z" fill="url(#g)"/>
+  <!-- band -->
+  <path d="M14.2 46.2 C22 43.6 42 43.6 49.6 46.2 L48.4 41.6 C40.5 39.6 23.5 39.6 15.6 41.6 Z" fill="#0B1530"/>
+</svg>
