@@ -106,9 +106,10 @@ h3{font-size:24px;line-height:1.2}
 .wizard__media{flex:1 1 320px;max-width:440px}
 .wizard__media img{width:100%;border-radius:18px;box-shadow:0 0 0 1px rgba(217,178,106,.3),0 24px 60px rgba(0,0,0,.45)}
 .wizard__copy{flex:999 1 420px;min-width:0;display:flex;flex-direction:column;gap:20px}
-.series{display:flex;flex-wrap:wrap;gap:16px;margin-top:8px}
-.series .card{flex:1 1 180px;padding:20px;border-radius:14px;display:flex;flex-direction:column;gap:6px}
-.series h3{font-size:19px}
+.follow{display:flex;flex-direction:column;gap:14px;margin-top:10px}
+.follow__label{margin:0;font-family:var(--label-font);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.btn.is-soon{opacity:.55;cursor:default}
+.btn.is-soon:hover{transform:none;background:transparent}
 
 /* shows */
 .shows{display:flex;flex-wrap:wrap;gap:40px;align-items:center;padding:48px;border-radius:22px;background:linear-gradient(135deg,var(--glow) 0%,var(--card) 70%);border:1px solid rgba(217,178,106,.3)}
@@ -258,15 +259,13 @@ h3{font-size:24px;line-height:1.2}
       <img src="images/wizard.jpg" alt="The Mystery Wizard smiling in his candlelit study, in a navy velvet robe and hat with a gold compass emblem" width="720" height="900" loading="lazy">
     </div>
     <div class="wizard__copy">
-      <p class="eyebrow">Meet the Wizard</p>
-      <h2 id="wizard-h">Wise, warm, and still baffled by self-checkout.</h2>
-      <p class="lead">The Mystery Wizard travels wherever the Compass of Wonders leads, sharing riddles, mind magic and small wisdom for big feelings.</p>
-      <div class="series">
-        <div class="card"><h3>The Wizard's Riddle</h3><p class="small">Pause and guess before the hourglass runs out.</p></div>
-        <div class="card"><h3>Solve the Mystery</h3><p class="small">Three clues. One apprentice. Can you crack it first?</p></div>
-        <div class="card"><h3>Wizard Wisdom</h3><p class="small">One breath. One small step. A little calm magic.</p></div>
+      <p class="eyebrow">Meet the Mystery Wizard</p>
+      <h2 id="wizard-h">A little magic for your scroll.</h2>
+      <p class="lead">Get quick riddles, mind-bending moments, wizardly reactions, and encouraging advice from the Mystery Wizard.</p>
+      <div class="follow">
+        <p class="follow__label">Watch and follow</p>
+        <div class="row" data-follow></div>
       </div>
-      <div class="row" style="margin-top:8px" data-social-buttons data-style="primary"></div>
     </div>
   </div>
 </section>
@@ -374,6 +373,20 @@ document.querySelectorAll('[data-social-icons]').forEach(box => {
   });
 });
 if (!nets.length) document.querySelectorAll('[data-social-section]').forEach(el => el.hidden = true);
+
+/* Meet the Mystery Wizard: always shows YouTube, Instagram and TikTok.
+   A network without a link yet shows faded and isn't clickable. */
+document.querySelectorAll('[data-follow]').forEach(box => {
+  ['youtube', 'instagram', 'tiktok'].forEach(k => {
+    const el = document.createElement(SITE[k] ? 'a' : 'span');
+    el.className = 'btn btn--ghost social' + (SITE[k] ? '' : ' is-soon');
+    if (SITE[k]) { el.href = SITE[k]; el.target = '_blank'; el.rel = 'noopener'; }
+    else { el.setAttribute('aria-disabled', 'true'); el.title = 'Coming soon'; }
+    el.innerHTML = ICONS[k] + '<span></span>';
+    el.lastChild.textContent = NAMES[k];
+    box.appendChild(el);
+  });
+});
 
 if (SITE.bookingEmail) {
   const l = document.querySelector('[data-booking-link]');
