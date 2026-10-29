@@ -145,6 +145,13 @@ h3{font-size:24px;line-height:1.2}
 .form__msg{margin:0;font-size:16px;font-weight:600}
 .form__msg--ok{font-family:var(--heading-font);font-size:22px;color:var(--parch-ink)}
 .form__msg--err{color:#8A1C1C}
+.join__kit{width:100%;max-width:440px;margin-top:6px}
+@media (max-width:600px){.join__kit{max-width:300px;margin:0 auto}}
+.kit{display:flex;flex-direction:column;gap:14px}
+.kit[hidden]{display:none}
+.kit p{margin:0;font-size:17px;color:#4A3B2A}
+.form .kit__btn{background:var(--gold);border-color:#B8913F;color:#1A1206}
+.form .kit__btn:hover{background:#E5C17E;color:#1A1206}
 
 /* footer */
 .foot{background:#050A1B;border-top:1px solid rgba(217,178,106,.2)}
@@ -290,13 +297,14 @@ h3{font-size:24px;line-height:1.2}
     <div class="join__copy">
       <p class="eyebrow">For parents, guardians &amp; educators</p>
       <h2 id="join-h">Step inside the Mystery Wagon.</h2>
-      <p class="lead">Get book news, apprentice activities, and first looks at what's coming next — including Book Two.</p>
+      <p class="lead">Join the list and get a <strong>free printable Apprentice Kit</strong>: a build-your-own Compass of Wonders and a welcome letter from the Mystery Wizard. Plus book news and first looks at Book Two.</p>
+      <img class="join__kit" src="images/apprentice-kit.jpg" alt="The free Apprentice Kit: a Compass of Wonders craft page and a welcome letter from the Mystery Wizard" width="900" height="760" loading="lazy">
     </div>
     <form class="form" id="signup" novalidate>
       <label for="email">Your email address</label>
       <div class="form__row">
         <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
-        <button class="btn" type="submit">Join the list</button>
+        <button class="btn" type="submit">Get my free kit</button>
       </div>
       <div class="check">
         <input id="adult" type="checkbox" required>
@@ -305,6 +313,10 @@ h3{font-size:24px;line-height:1.2}
       <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label for="website">Leave this empty</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
       <p class="fine">For adults 18+. We never sell your email, and you can unsubscribe anytime.</p>
       <p class="form__msg" role="status" aria-live="polite" hidden></p>
+      <div class="kit" hidden>
+        <p>Your Apprentice Kit is ready. Print it on cardstock and let the adventure begin!</p>
+        <a class="btn kit__btn" href="downloads/Mystery-Wizard-Apprentice-Kit.pdf" download>Download the Apprentice Kit (PDF)</a>
+      </div>
     </form>
   </div>
 </section>
@@ -417,7 +429,8 @@ form.addEventListener('submit', async (e) => {
   try {
     await fetch(SITE.signupEndpoint, { method: 'POST', body: data, mode: 'no-cors' });
     form.querySelectorAll('label,.form__row,.check,.fine').forEach(el => el.hidden = true);
-    say("Thank you! You're on the Mystery Wizard list.", true);
+    say("Welcome, apprentice! You're on the Mystery Wizard list.", true);
+    form.querySelector('.kit').hidden = false;   // reveal the free Apprentice Kit download
   } catch (err) {
     btn.disabled = false;
     say('Something went wrong. Please try again in a moment.');

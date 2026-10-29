@@ -16,6 +16,10 @@ The website's signup box sends each email to the **Mystery Wizard Email Address*
 
 Keep these form settings so signups keep working: anyone with the link can respond, **Limit to 1 response** off, **Collect email addresses** set to Do not collect.
 
+## Free Apprentice Kit
+
+After someone signs up, the page shows a button to download the free Apprentice Kit (`downloads/Mystery-Wizard-Apprentice-Kit.pdf`: the Compass of Wonders craft plus the Wizard's welcome letter). To swap in a new freebie, replace that PDF with one of the same name, and update `images/apprentice-kit.jpg` (the preview next to the signup box). `robots.txt` keeps the `downloads/` folder out of search results.
+
 ## Get your email list
 
 Open the Google Form, go to **Responses**, and click **View in Sheets**. Each row is one signup with the time and email. Download it with **File › Download › Comma-separated values (.csv)** to import into any email tool later.
