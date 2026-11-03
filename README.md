@@ -31,3 +31,7 @@ At the top of `index.html`, the `:root` block lists every color and font with a 
 ## Images
 
 All images live in the `images/` folder. To add the Wizard's portrait, save it as `images/wizard.jpg` and change `images/logo-full.jpg` to `images/wizard.jpg` in the Meet the Wizard section.
+
+## Visitor stats
+
+Traffic is tracked with Cloudflare Web Analytics (free, no cookies). See it in the Cloudflare dashboard under **Analytics & Logs › Web Analytics**. The tracking snippet is at the very bottom of `index.html`, just above `</body>`.
