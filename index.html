@@ -172,6 +172,8 @@ h3{font-size:24px;line-height:1.2}
 .foot__brand img{width:72px;height:72px;border-radius:12px}
 .foot__brand p{margin:0;max-width:22rem;font-family:var(--heading-font);font-size:18px;line-height:1.45;color:#E6DDC8}
 .foot__social{display:flex;gap:10px}
+.foot__links{display:flex;flex-wrap:wrap;gap:8px 24px;font-family:var(--label-font);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.foot__links a{color:#E6DDC8;text-decoration:none}.foot__links a:hover{color:var(--gold)}
 .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid rgba(217,178,106,.45);color:var(--ink)}
 .icon-btn:hover{background:rgba(217,178,106,.12);color:var(--ink)}
 .icon-btn svg{width:20px;height:20px}
@@ -198,7 +200,8 @@ h3{font-size:24px;line-height:1.2}
     <div class="navlinks">
       <a href="#books">Books</a>
       <a href="#wizard">Videos</a>
-      <a href="#shows" data-needs="bookingEmail">Live Shows</a>
+      <a href="#shows">Live Shows</a>
+      <a href="contact.html">Contact</a>
     </div>
     <a class="btn" href="#join">Join the Wagon</a>
   </nav>
@@ -285,7 +288,7 @@ h3{font-size:24px;line-height:1.2}
   </div>
 </section>
 
-<section id="shows" class="wrap pad" aria-labelledby="shows-h" data-needs="bookingEmail">
+<section id="shows" class="wrap pad" aria-labelledby="shows-h">
   <div class="shows">
     <div class="shows__copy">
       <p class="eyebrow">For schools &amp; libraries</p>
@@ -298,7 +301,7 @@ h3{font-size:24px;line-height:1.2}
       </ul>
     </div>
     <div class="shows__cta">
-      <a class="btn" data-booking-link href="#" style="min-height:52px;font-size:17px">Ask about booking</a>
+      <a class="btn" data-booking-link href="contact.html?topic=show" style="min-height:52px;font-size:17px">Ask about booking</a>
       <p class="small" data-booking-text></p>
     </div>
   </div>
@@ -341,6 +344,7 @@ h3{font-size:24px;line-height:1.2}
       <img src="images/logo-emblem.jpg" alt="The Mystery Wizard" width="72" height="72" loading="lazy">
       <p>For curious minds, courageous hearts, and wonderfully wild imaginations.</p>
     </div>
+    <nav class="foot__links" aria-label="Footer"><a href="contact.html">Contact</a><a href="contact.html?topic=show">Book a show</a></nav>
     <div class="foot__social" data-social-icons></div>
     <p class="copy">© <span id="yr">2026</span> Mystery Wizard · Books by J.J. Kuter</p>
   </div>
@@ -356,7 +360,7 @@ const SITE = {
   tiktok:    'https://www.tiktok.com/@askthemysterywizard',
   instagram: 'https://www.instagram.com/askthemysterywizard',
   facebook:  '',
-  bookingEmail: '',  // e.g. 'shows@themysterywizard.com' (shows the Live Shows section)
+  bookingEmail: '',  // optional: if set, "Ask about booking" opens an email instead of the contact page
   // Email signups go to the "Mystery Wizard Email Address" Google Form,
   // which saves each one to its linked Google Sheet.
   signupEndpoint: 'https://docs.google.com/forms/d/e/1FAIpQLSfoC9CBihBHUGHP6Pavy9GYJQJi60RwWhiho2VojfpQcA32ig/formResponse',
@@ -413,7 +417,7 @@ if (SITE.bookingEmail) {
   l.href = 'mailto:' + SITE.bookingEmail + '?subject=' + encodeURIComponent('Mystery Wizard show booking');
   document.querySelector('[data-booking-text]').textContent = SITE.bookingEmail;
 } else {
-  document.querySelectorAll('[data-needs="bookingEmail"]').forEach(el => el.hidden = true);
+  document.querySelector('[data-booking-text]').textContent = 'Send a message through our contact page.';
 }
 
 document.getElementById('yr').textContent = new Date().getFullYear();
