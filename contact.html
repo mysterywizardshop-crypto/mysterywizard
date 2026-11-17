@@ -196,19 +196,12 @@ h2{font-size:24px;line-height:1.2}
 <script>
 /* ================================================================
    CONTACT SETTINGS
-   Messages go to the "Mystery Wizard Contact" Google Form, which saves
-   each one to its linked Google Sheet (free). Turn on email alerts in
-   the form: Responses > ⋮ > Get email notifications for new responses.
+   Messages are sent to your email by Web3Forms (free).
+   Get a key at https://web3forms.com: enter the email that should
+   receive messages, then paste the key they email you below.
    ================================================================ */
 const CONTACT = {
-  endpoint: '',   // e.g. 'https://docs.google.com/forms/d/e/XXXX/formResponse'
-  fields: {       // each question's entry number from the form
-    name: '',         // "Name"
-    email: '',        // "Email"
-    topic: '',        // "Topic"
-    organization: '', // "School or library"
-    message: ''       // "Message"
-  }
+  web3formsKey: ''   // e.g. 'a1b2c3d4-....'
 };
 
 document.getElementById('yr').textContent = new Date().getFullYear();
@@ -222,10 +215,6 @@ const topic = f.topic;
 if (new URLSearchParams(location.search).get('topic') === 'show') topic.value = 'Book a live show';
 
 function say(text) { msg.hidden = false; msg.textContent = text; }
-function thanks() {
-  form.querySelectorAll('.sending').forEach(el => el.hidden = true);
-  const done = form.querySelector('.done'); done.hidden = false; done.focus();
-}
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -234,23 +223,31 @@ form.addEventListener('submit', async (e) => {
   if (!f.email.value.trim() || !f.email.checkValidity()) return say('Please enter a valid email address.');
   if (!f.message.value.trim()) return say('Please write a message.');
   if (!f.adult.checked) return say('Please confirm you are 18 or older.');
-  if (!CONTACT.endpoint) return say('The contact form opens soon. Please check back!');
-  if (f.botcheck.checked) return thanks();   // spam trap: bots tick this hidden box
+  if (!CONTACT.web3formsKey) return say('The contact form opens soon. Please check back!');
 
-  const values = {
+  const btn = form.querySelector('button'); btn.disabled = true; btn.textContent = 'Sending…';
+  const org = f.organization.value.trim();
+  const payload = {
+    access_key: CONTACT.web3formsKey,
+    subject: 'Mystery Wizard website: ' + topic.value + (org ? ' (' + org + ')' : ''),
+    from_name: 'TheMysteryWizard.com',
     name: f.name.value.trim(),
     email: f.email.value.trim(),
     topic: topic.value,
-    organization: f.organization.value.trim(),
-    message: f.message.value.trim()
+    organization: org || '(not given)',
+    message: f.message.value.trim(),
+    botcheck: f.botcheck.checked
   };
-  const data = new URLSearchParams();
-  for (const k in values) if (CONTACT.fields[k] && values[k]) data.append(CONTACT.fields[k], values[k]);
-
-  const btn = form.querySelector('button'); btn.disabled = true; btn.textContent = 'Sending…';
   try {
-    await fetch(CONTACT.endpoint, { method: 'POST', body: data, mode: 'no-cors' });
-    thanks();
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const out = await res.json();
+    if (!out.success) throw new Error(out.message);
+    form.querySelectorAll('.sending').forEach(el => el.hidden = true);
+    const done = form.querySelector('.done'); done.hidden = false; done.focus();
   } catch (err) {
     btn.disabled = false; btn.textContent = 'Send message';
     say('Something went wrong sending your message. Please try again in a moment.');

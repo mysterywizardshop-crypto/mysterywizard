@@ -1,6 +1,6 @@
 # TheMysteryWizard.com
 
-The Mystery Wizard's website: a home page with the books, the videos, live shows and an email signup that saves to a Google Sheet, plus a contact page (`contact.html`) that saves messages to a Google Sheet.
+The Mystery Wizard's website: a home page with the books, the videos, live shows and an email signup that saves to a Google Sheet, plus a contact page (`contact.html`) that emails messages to you.
 
 ## Change your links and email form
 
@@ -16,15 +16,15 @@ The website's signup box sends each email to the **Mystery Wizard Email Address*
 
 Keep these form settings so signups keep working: anyone with the link can respond, **Limit to 1 response** off, **Collect email addresses** set to Do not collect.
 
-## Contact page (free, Google Form)
+## Contact page (free, Web3Forms)
 
-`contact.html` has a form for teachers, librarians and parents. Each message goes to the **Mystery Wizard Contact** Google Form, which saves it to a linked Google Sheet. Your email address never appears on the site.
+`contact.html` has a form for teachers, librarians and parents. Web3Forms emails each message to you; your email address never appears on the site.
 
-Form setup: five **Short answer / Paragraph** questions (Name, Email, Topic, School or library, Message), none required, anyone with the link can respond, **Limit to 1 response** off, **Collect email addresses** set to Do not collect. Then in **CONTACT SETTINGS** near the bottom of `contact.html`, fill in `endpoint` (the form's link ending in `/formResponse`) and each question's `entry.` number.
+1. Go to https://web3forms.com, enter the email that should receive messages, and they'll email you an **access key**.
+2. Open `contact.html`, scroll near the bottom to **CONTACT SETTINGS**, and paste the key: `web3formsKey: 'your-key-here'`.
+3. Send yourself a test message from the live site.
 
-To get an email when a message arrives: open the form, **Responses › ⋮ › Get email notifications for new responses**. The email says there's a new response; open the Sheet to read it.
-
-Until `endpoint` is set, the form shows "The contact form opens soon."
+Until the key is set, the form shows "The contact form opens soon." Each email's subject says what it's about (show, books, something else), and hitting Reply goes straight to the sender. A hidden spam trap blocks most bots.
 
 ## Free Apprentice Kit
 
