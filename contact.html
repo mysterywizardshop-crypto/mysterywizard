@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact the Mystery Wizard — Shows, Books &amp; Questions</title>
+<meta name="description" content="Contact the Mystery Wizard: book a live show for your school or library, or ask about The Mystery Wizard Chronicles books by J.J. Kuter.">
+<meta property="og:title" content="Contact the Mystery Wizard">
+<meta property="og:description" content="Book a live show for your school or library, or send the Mystery Wizard a question.">
+<meta property="og:image" content="https://themysterywizard.com/images/share.jpg">
+<meta property="og:url" content="https://themysterywizard.com/contact.html">
+<meta property="og:site_name" content="The Mystery Wizard">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://themysterywizard.com/contact.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#070E24">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="icon" type="image/png" sizes="64x64" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* Same colors and fonts as index.html */
+:root{
+  --night:#070E24; --deep:#0B1530; --card:#0D1A3A; --glow:#24183F;
+  --gold:#D9B26A; --gold-soft:#F1D59A; --ink:#F4EEDF; --muted:#D6DBE8; --dim:#B8C0D4;
+  --parch:#F3E9D2; --parch-ink:#2A1F14;
+  --heading-font:Fraunces,Georgia,serif; --label-font:Cinzel,Georgia,serif; --body-font:'Source Sans 3',system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--night);color:var(--ink);font-family:var(--body-font);line-height:1.5;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--gold)}a:hover{color:var(--gold-soft)}
+:focus-visible{outline:3px solid var(--gold-soft);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.eyebrow{margin:0;font-family:var(--label-font);font-weight:500;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+h1,h2,h3{font-family:var(--heading-font);font-weight:600;color:var(--ink);margin:0}
+h1{font-size:clamp(38px,5vw,60px);line-height:1.05;letter-spacing:-.01em}
+h2{font-size:24px;line-height:1.2}
+.lead{margin:0;font-size:19px;line-height:1.6;color:var(--muted)}
+.small{margin:0;font-size:15px;line-height:1.5;color:var(--dim)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 24px;border-radius:999px;background:var(--gold);color:#1A1206;border:1px solid var(--gold);font:600 16px/1 var(--body-font);text-decoration:none;cursor:pointer;transition:transform .15s ease,background-color .15s ease}
+.btn:hover{transform:translateY(-1px);background:#E5C17E;color:#1A1206}
+.btn:disabled{opacity:.6;cursor:wait;transform:none}
+[hidden]{display:none !important}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;background:rgba(7,14,36,.92);backdrop-filter:blur(8px);border-bottom:1px solid rgba(217,178,106,.18)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:76px}
+.brand{display:flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none}
+.brand img{width:52px;height:52px;border-radius:10px}
+.brand span{font-family:var(--label-font);font-weight:700;font-size:16px;letter-spacing:.08em;line-height:1.15}
+.navlinks{display:flex;gap:30px;font-family:var(--label-font);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.navlinks a{color:#E6DDC8;text-decoration:none}.navlinks a:hover,.navlinks a[aria-current]{color:var(--gold)}
+.nav .btn{min-height:44px;padding:0 20px;font-size:15px}
+
+/* contact */
+.contact{background:linear-gradient(180deg,var(--deep) 0%,var(--night) 100%)}
+.contact__in{display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start;padding-top:88px;padding-bottom:104px}
+.contact__copy{flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.contact__copy img{width:100%;max-width:360px;border-radius:18px;box-shadow:0 0 0 1px rgba(217,178,106,.3),0 24px 60px rgba(0,0,0,.45);margin-top:8px}
+.ways{margin:4px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-size:17px;color:var(--muted)}
+.ways li{display:flex;gap:10px}
+.ways li::before{content:"✦";color:var(--gold);font-size:12px;margin-top:5px}
+
+.form{flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:18px;padding:36px;border-radius:18px;background:#FBF6EA;border:1px solid #DCCBA4;color:var(--parch-ink)}
+.form h2{color:var(--parch-ink)}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-weight:600;font-size:16px}
+.field .opt{font-weight:400;color:#6B5A43}
+.pair{display:flex;flex-wrap:wrap;gap:18px}
+.pair .field{flex:1 1 200px;min-width:0}
+.form input[type=text],.form input[type=email],.form select,.form textarea{width:100%;min-height:52px;padding:12px 16px;border-radius:10px;border:1px solid #BFA978;background:#fff;font:400 17px var(--body-font);color:var(--parch-ink)}
+.form textarea{min-height:150px;resize:vertical;line-height:1.5}
+.form select{appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%232A1F14' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") right 16px center no-repeat;padding-right:44px}
+.form .btn{align-self:flex-start;border-radius:10px;min-height:52px;background:var(--card);border-color:var(--card);color:var(--ink)}
+.form .btn:hover{background:#1A2A55;color:var(--ink)}
+.check{display:flex;gap:10px;align-items:flex-start}
+.check input{width:20px;height:20px;margin:2px 0 0;flex:none;accent-color:var(--card)}
+.check label{font-weight:400;font-size:15px;line-height:1.45;color:#4A3B2A}
+.fine{margin:0;font-size:13px;line-height:1.5;color:#5E4C36}
+.form__msg{margin:0;font-size:16px;font-weight:600;color:#8A1C1C}
+.done{display:flex;flex-direction:column;gap:12px}
+.done h2{font-size:30px}
+.done p{margin:0;font-size:17px;color:#4A3B2A}
+
+/* footer */
+.foot{background:#050A1B;border-top:1px solid rgba(217,178,106,.2)}
+.foot__in{display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between;padding-top:48px;padding-bottom:48px}
+.foot__brand{display:flex;align-items:center;gap:16px}
+.foot__brand img{width:72px;height:72px;border-radius:12px}
+.foot__brand p{margin:0;max-width:22rem;font-family:var(--heading-font);font-size:18px;line-height:1.45;color:#E6DDC8}
+.copy{width:100%;margin:0;font-size:14px;color:#8E98B0}
+
+@media (max-width:760px){
+  .navlinks{display:none}
+  .brand span{font-size:14px}
+  .contact__in{padding-top:56px;padding-bottom:72px;gap:40px}
+  .contact__copy img{display:none}
+  .form{padding:24px}
+}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <nav class="wrap nav" aria-label="Main">
+    <a class="brand" href="index.html"><img src="images/logo-emblem.jpg" alt="" width="52" height="52"><span>The Mystery<br>Wizard</span></a>
+    <div class="navlinks">
+      <a href="index.html#books">Books</a>
+      <a href="index.html#wizard">Videos</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </div>
+    <a class="btn" href="index.html#join">Join the Wagon</a>
+  </nav>
+</header>
+
+<main class="contact">
+  <div class="wrap contact__in">
+    <div class="contact__copy">
+      <p class="eyebrow">For teachers, librarians &amp; parents</p>
+      <h1>Send word to the Wizard.</h1>
+      <p class="lead">Want the Mystery Wizard at your school or library? Have a question about the books? Send a message and you’ll hear back soon.</p>
+      <ul class="ways">
+        <li><span>Book <em>The Mystery Wizard and the Compass of Wonders</em>, our live show</span></li>
+        <li><span>Questions about The Mystery Wizard Chronicles</span></li>
+        <li><span>Author visits, events and anything else</span></li>
+      </ul>
+      <img src="images/wizard.jpg" alt="The Mystery Wizard smiling in his candlelit study" width="720" height="900" loading="lazy">
+    </div>
+
+    <form class="form" id="contact" novalidate>
+      <div class="sending">
+        <h2>Send a message</h2>
+      </div>
+      <div class="sending pair">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="email">Your email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+        </div>
+      </div>
+      <div class="sending pair">
+        <div class="field">
+          <label for="topic">What’s it about?</label>
+          <select id="topic" name="topic">
+            <option value="Book a live show">Book a live show</option>
+            <option value="Books">The books</option>
+            <option value="Something else" selected>Something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="org">School or library <span class="opt">(optional)</span></label>
+          <input id="org" name="organization" type="text" autocomplete="organization">
+        </div>
+      </div>
+      <div class="sending field">
+        <label for="message">Your message</label>
+        <textarea id="message" name="message" required placeholder="For show bookings, include your preferred dates and roughly how many kids will attend."></textarea>
+      </div>
+      <div class="sending check">
+        <input id="adult" type="checkbox" required>
+        <label for="adult">I am 18 or older.</label>
+      </div>
+      <!-- spam trap: real visitors never see or tick this -->
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+      <p class="form__msg" role="alert" hidden></p>
+      <button class="sending btn" type="submit">Send message</button>
+      <p class="sending fine">This form is for grown-ups. Your details are only used to reply to you.</p>
+
+      <div class="done" hidden tabindex="-1">
+        <p class="eyebrow" style="color:#7A5714">Message sent</p>
+        <h2>Thank you! Your message is on its way.</h2>
+        <p>The Mystery Wizard will reply to your email soon.</p>
+      </div>
+    </form>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <div class="foot__brand">
+      <img src="images/logo-emblem.jpg" alt="The Mystery Wizard" width="72" height="72" loading="lazy">
+      <p>For curious minds, courageous hearts, and wonderfully wild imaginations.</p>
+    </div>
+    <a href="index.html">Back to the home page</a>
+    <p class="copy">© <span id="yr">2026</span> Mystery Wizard · Books by J.J. Kuter</p>
+  </div>
+</footer>
+
+<script>
+/* ================================================================
+   CONTACT SETTINGS
+   Messages are sent to your email by Web3Forms (free).
+   Get a key at https://web3forms.com: enter the email that should
+   receive messages, then paste the key they email you below.
+   ================================================================ */
+const CONTACT = {
+  web3formsKey: ''   // e.g. 'a1b2c3d4-....'
+};
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+const form = document.getElementById('contact');
+const msg = form.querySelector('.form__msg');
+const f = form.elements;
+const topic = f.topic;
+
+// contact.html?topic=show picks "Book a live show" (used by the home page's booking button)
+if (new URLSearchParams(location.search).get('topic') === 'show') topic.value = 'Book a live show';
+
+function say(text) { msg.hidden = false; msg.textContent = text; }
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  msg.hidden = true;
+  if (!f.name.value.trim()) return say('Please enter your name.');
+  if (!f.email.value.trim() || !f.email.checkValidity()) return say('Please enter a valid email address.');
+  if (!f.message.value.trim()) return say('Please write a message.');
+  if (!f.adult.checked) return say('Please confirm you are 18 or older.');
+  if (!CONTACT.web3formsKey) return say('The contact form opens soon. Please check back!');
+
+  const btn = form.querySelector('button'); btn.disabled = true; btn.textContent = 'Sending…';
+  const org = f.organization.value.trim();
+  const payload = {
+    access_key: CONTACT.web3formsKey,
+    subject: 'Mystery Wizard website: ' + topic.value + (org ? ' (' + org + ')' : ''),
+    from_name: 'TheMysteryWizard.com',
+    name: f.name.value.trim(),
+    email: f.email.value.trim(),
+    topic: topic.value,
+    organization: org || '(not given)',
+    message: f.message.value.trim(),
+    botcheck: f.botcheck.checked
+  };
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const out = await res.json();
+    if (!out.success) throw new Error(out.message);
+    form.querySelectorAll('.sending').forEach(el => el.hidden = true);
+    const done = form.querySelector('.done'); done.hidden = false; done.focus();
+  } catch (err) {
+    btn.disabled = false; btn.textContent = 'Send message';
+    say('Something went wrong sending your message. Please try again in a moment.');
+  }
+});
+</script>
+<!-- Cloudflare Web Analytics (cookie-free visitor stats) -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "7f3fa8c9edd344258c6dedd0dc7937c6"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>
